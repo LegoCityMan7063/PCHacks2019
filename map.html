@@ -13,100 +13,15 @@
     
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-      <link rel="stylesheet" href="/css/style.css">
+      <link rel="stylesheet" href="home.css">
   </head>
   
   <div class="container">  
-    <form id="contact" action="" method="post">
-      <h1>FASTConnect</h1>
-      <br>
-      <h3>An easy way for everyone to arrange meetings.</h3>
-      <fieldset>
-        <h4>Location 1:</h4>
-        <input type="text" id="search_location" class="form-control" placeholder="Search location">
-        <script>
-            var geocoder;
-            var map;
-            var marker;
-            
-                
-                /*
-                 * autocomplete location search
-                 */
-                var PostCodeid = '#search_location';
-                $(function () {
-                    $(PostCodeid).autocomplete({
-                        source: function (request, response) {
-                            geocoder.geocode({
-                                'address': request.term
-                            }, function (results, status) {
-                                response($.map(results, function (item) {
-                                    return {
-                                        label: item.formatted_address,
-                                        value: item.formatted_address,
-                                        lat: item.geometry.location.lat(),
-                                        lon: item.geometry.location.lng()
-                                    };
-                                }));
-                            });
-                        },
-                        select: function (event, ui) {
-                            $('.search_addr').val(ui.item.value);
-                            $('.search_latitude').val(ui.item.lat);
-                            $('.search_longitude').val(ui.item.lon);
-                            var latlng = new google.maps.LatLng(ui.item.lat, ui.item.lon);
-                            marker.setPosition(latlng);
-                            initialize();
-                        }
-                    });
-                });
-                
-                /*
-                 * Point location on google map
-                 */
-                $('.get_map').click(function (e) {
-                    var address = $(PostCodeid).val();
-                    geocoder.geocode({'address': address}, function (results, status) {
-                        if (status == google.maps.GeocoderStatus.OK) {
-                            map.setCenter(results[0].geometry.location);
-                            marker.setPosition(results[0].geometry.location);
-                            $('.search_addr').val(results[0].formatted_address);
-                            $('.search_latitude').val(marker.getPosition().lat());
-                            $('.search_longitude').val(marker.getPosition().lng());
-                        } else {
-                            alert("Geocode was not successful for the following reason: " + status);
-                        }
-                    });
-                    e.preventDefault();
-                });
-            
-                //Add listener to marker for reverse geocoding
-                google.maps.event.addListener(marker, 'drag', function () {
-                    geocoder.geocode({'latLng': marker.getPosition()}, function (results, status) {
-                        if (status == google.maps.GeocoderStatus.OK) {
-                            if (results[0]) {
-                                $('.search_addr').val(results[0].formatted_address);
-                                $('.search_latitude').val(marker.getPosition().lat());
-                                $('.search_longitude').val(marker.getPosition().lng());
-                            }
-                        }
-                    });
-                });
-            });
-            </script>
-
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC56bEuVXBB7haWqpfM33EVZcKkELqwJPE&libraries=places&callback=initAutocomplete"
-async defer></script>
-
-      </fieldset>
-      <fieldset>
-        <h4>Location 2:</h4>
-        <input placeholder="" type="tel" tabindex="3" required>
-      </fieldset>
+    <form id="contact" action="" method="">
       <fieldset>
         <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
       </fieldset>
-      <p class="copyright">Designed by <a href="https://colorlib.com" target="_blank" title="Colorlib">Colorlib</a></p>
+
     </form>
   </div>
   <div id="map"></div>
