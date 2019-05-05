@@ -18,7 +18,11 @@ body {
  font-size: 12px;
  line-height: 30px;
  color: #777;
- background: #4CAF50;
+ background-image: url("Car.jpg!d");
+ height: 140%;
+ background-position: center;
+background-repeat: no-repeat;
+background-size: cover;background: #4CAF50;
 }
 
 .container {
