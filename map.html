@@ -4,7 +4,9 @@
           /* Set the size of the div element that contains the map */
          #map {
            height: 800px;  /* The height is 400 pixels */
-           width: 100%;  /* The width is the width of the web page */
+           width: 80%;  /* The width is the width of the web page */
+           margin-left: auto;
+             margin-right: auto;
           }
        </style>
        <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
@@ -13,17 +15,12 @@
     
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-      <link rel="stylesheet" href="home.css">
+      <link rel="stylesheet" href="map.css">
   </head>
-  
-  <div class="container">  
-    <form id="contact" action="" method="">
-      <fieldset>
-        <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
-      </fieldset>
-
-    </form>
-  </div>
+  <br>
+  <img src="Logo.png" alt="Logo" width="150" height="128" class="center">
+  <br>
+  <br>
   <div id="map"></div>
     <script>
 // Initialize and add the map
@@ -45,4 +42,11 @@ function initMap() {
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC56bEuVXBB7haWqpfM33EVZcKkELqwJPE&callback=initMap">
     </script>
+    <div class="container">  
+        <form id="contact" action="" method="">
+          <fieldset>
+            <button name="submit" type="submit" id="contact-submit" data-submit="...Sending" formaction="home.html">Back</button>
+          </fieldset>
+        </form>
+      </div>
 </html>
